@@ -5,7 +5,7 @@ Home: https://github.com/nosretraites/Destinie-2
 
 Package license: GPL-3.0-only
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Dynamic microsimulation model
 
@@ -29,13 +29,6 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_r_base3.5.1</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9550&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-destinie-feedstock?branchName=master&jobName=linux&configuration=linux_r_base3.5.1" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>linux_r_base3.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9550&branchName=master">
@@ -43,10 +36,10 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>win_r_base3.5.1</td>
+              <td>linux_r_base4.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9550&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-destinie-feedstock?branchName=master&jobName=win&configuration=win_r_base3.5.1" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-destinie-feedstock?branchName=master&jobName=linux&configuration=linux_r_base4.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -54,6 +47,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9550&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-destinie-feedstock?branchName=master&jobName=win&configuration=win_r_base3.6" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_r_base4.0</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9550&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-destinie-feedstock?branchName=master&jobName=win&configuration=win_r_base4.0" alt="variant">
                 </a>
               </td>
             </tr>
