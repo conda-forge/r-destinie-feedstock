@@ -16,8 +16,6 @@ source:
 
 build:
   number: 1
-  # osx: Error in close.connection(con) : invalid connection
-  skip: true  # [osx]
   merge_build_host: true  # [win]
   rpaths:
     - lib/R/lib/
