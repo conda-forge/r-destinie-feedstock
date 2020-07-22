@@ -8,12 +8,14 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  # no tag is available
-  git_url: https://github.com/nosretraites/Destinie-2.git
-  git_rev: 588198941ced3926fcb57c360d41a82e588bef77 # 2020-02-21
+  # no tag is available (2020-02-21)
+  git_url: https://github.com/nosretraites/Destinie-2.git  # [unix]
+  git_rev: 588198941ced3926fcb57c360d41a82e588bef77  # [unix]
+  url: https://github.com/nosretraites/Destinie-2/archive/master.zip  # [win]
+  sha256: d6012624fa3d0c46d1d8a8c840571319e26f1e9711c832ec1b2ec5faf399301c  # [win]
 
 build:
-  number: 0
+  number: 1
   # osx: Error in close.connection(con) : invalid connection
   skip: true  # [osx]
   merge_build_host: true  # [win]
@@ -23,9 +25,9 @@ build:
 
 requirements:
   build:
-    - {{ compiler('cxx') }}     # [unix]
-    - {{ compiler('m2w64_cxx') }}     # [win]
-    - posix    # [win]
+    - {{ compiler('cxx') }}  # [unix]
+    - {{ compiler('m2w64_cxx') }}  # [win]
+    - posix  # [win]
     - pkg-config
   host:
     - r-base
@@ -38,8 +40,6 @@ requirements:
     - r-stringr
     - r-reshape2
     - r-rjava
-    # https://github.com/conda-forge/openjdk-feedstock/issues/66
-    - openjdk =8.0.192=h14c3975_1003  # [linux]
   run:
     - r-base
     - r-rcpp
@@ -51,8 +51,6 @@ requirements:
     - r-stringr
     - r-reshape2
     - r-rjava
-    # https://github.com/conda-forge/openjdk-feedstock/issues/66
-    - openjdk =8.0.192=h14c3975_1003  # [linux]
 
 test:
   commands:
