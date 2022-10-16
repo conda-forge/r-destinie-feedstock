@@ -11,6 +11,8 @@ source:
   # no tag is available (2020-02-21)
   url: https://github.com/nosretraites/Destinie-2/archive/588198941ced3926fcb57c360d41a82e588bef77.tar.gz
   sha256: cb63b6bcb612abac904c28bd1afbb864e06642d098b7dff2811cf51066385277
+  patches:
+    - 0001-Replace-PI-by-M_PI-as-per-STRICT_R_HEADERS.patch
 
 build:
   number: 2

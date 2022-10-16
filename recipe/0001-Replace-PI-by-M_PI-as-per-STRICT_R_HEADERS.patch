@@ -1,0 +1,58 @@
+From 8d31e6dd0f630cc560988af28d607f4b83d322b1 Mon Sep 17 00:00:00 2001
+From: Marcel Bargull <marcel.bargull@udo.edu>
+Date: Sun, 16 Oct 2022 12:10:28 +0200
+Subject: [PATCH] Replace PI by M_PI (as per STRICT_R_HEADERS)
+
+STRICT_R_HEADERS is enabled by default in Rcpp 1.0.8.
+refs:
+  https://github.com/RcppCore/Rcpp/issues/1158#issuecomment-1012560047
+---
+ src/Migration.cpp  | 2 +-
+ src/Naissance.cpp  | 2 +-
+ src/OutilsBase.cpp | 4 ++--
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/Migration.cpp b/src/Migration.cpp
+index b6d9a59..ed545dd 100644
+--- a/src/Migration.cpp
++++ b/src/Migration.cpp
+@@ -72,7 +72,7 @@ int findet_migrant(Indiv& X) {
+   else {
+     u1=alea();
+     u2=alea();
+-    x1=sqrt(-2*log(u1))*cos(2*PI*u2);
++    x1=sqrt(-2*log(u1))*cos(2*M_PI*u2);
+     
+     if (X.sexe==HOMME) {
+       findet=min_max(int(20.70811+x1*2.806263+alea()),16,30);
+diff --git a/src/Naissance.cpp b/src/Naissance.cpp
+index 0d673d2..ee27534 100644
+--- a/src/Naissance.cpp
++++ b/src/Naissance.cpp
+@@ -134,7 +134,7 @@ void naissance (int t, bool option_tirageNonCale) {
+     int e = liste_nvellemere[i];
+     double u1=alea();
+     double u2=alea();
+-    double alea_adfe=sqrt(-2*log(u1))*cos(2*PI*u2);
++    double alea_adfe=sqrt(-2*log(u1))*cos(2*M_PI*u2);
+     int sexenn =liste_nvellemere_garcon[i] ? HOMME : FEMME ;
+ 	//(int Id, int sexe, int anaiss,  int findet, int age, int pere, int mere)
+     pop.emplace_back(pop.size(),sexenn,t+1900,18,0,0,0);
+diff --git a/src/OutilsBase.cpp b/src/OutilsBase.cpp
+index a2af6b6..8e22eda 100644
+--- a/src/OutilsBase.cpp
++++ b/src/OutilsBase.cpp
+@@ -200,8 +200,8 @@ double norm1, norm2, alea1, alea2;
+ for(int i=0; i<int((n+1)/2); i++) {
+ 	alea1=alea();
+ 	alea2=alea();
+-	norm1=sqrt(-2 * log(alea1)) * cos(2*PI*alea2);
+-	norm2=sqrt(-2 * log(alea1)) * sin(2*PI*alea2);
++	norm1=sqrt(-2 * log(alea1)) * cos(2*M_PI*alea2);
++	norm2=sqrt(-2 * log(alea1)) * sin(2*M_PI*alea2);
+ 	vecteur_gauss_standard.push_back(norm1);
+ 	vecteur_gauss_standard.push_back(norm2);
+ 	}
+-- 
+2.38.0
+
