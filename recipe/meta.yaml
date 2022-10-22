@@ -9,14 +9,13 @@ package:
 
 source:
   # no tag is available (2020-02-21)
-  git_url: https://github.com/nosretraites/Destinie-2.git  # [unix]
-  git_rev: 588198941ced3926fcb57c360d41a82e588bef77  # [unix]
-  # https://github.com/conda/conda-build/issues/3992
-  url: https://github.com/nosretraites/Destinie-2/archive/master.zip  # [win]
-  sha256: d6012624fa3d0c46d1d8a8c840571319e26f1e9711c832ec1b2ec5faf399301c  # [win]
+  url: https://github.com/nosretraites/Destinie-2/archive/588198941ced3926fcb57c360d41a82e588bef77.tar.gz
+  sha256: cb63b6bcb612abac904c28bd1afbb864e06642d098b7dff2811cf51066385277
+  patches:
+    - 0001-Replace-PI-by-M_PI-as-per-STRICT_R_HEADERS.patch
 
 build:
-  number: 1
+  number: 2
   merge_build_host: true  # [win]
   rpaths:
     - lib/R/lib/
