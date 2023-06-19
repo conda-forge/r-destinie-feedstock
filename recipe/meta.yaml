@@ -15,7 +15,7 @@ source:
     - 0001-Replace-PI-by-M_PI-as-per-STRICT_R_HEADERS.patch
 
 build:
-  number: 2
+  number: 3
   merge_build_host: true  # [win]
   rpaths:
     - lib/R/lib/
