@@ -1,7 +1,6 @@
 {% set version = "0.0" %}
 
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-destinie
@@ -15,8 +14,7 @@ source:
     - 0001-Replace-PI-by-M_PI-as-per-STRICT_R_HEADERS.patch
 
 build:
-  number: 3
-  merge_build_host: true  # [win]
+  number: 4
   rpaths:
     - lib/R/lib/
     - lib/
@@ -25,7 +23,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}  # [unix]
     - {{ compiler('m2w64_cxx') }}  # [win]
-    - posix  # [win]
+    - {{ stdlib("c") }}    # [win]
     - pkg-config
   host:
     - r-base
