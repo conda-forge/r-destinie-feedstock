@@ -1,5 +1,4 @@
 {% set version = "0.0" %}
-
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -56,11 +55,13 @@ test:
 about:
   home: https://github.com/nosretraites/Destinie-2
   license: GPL-3.0-only
-  license_file: COPYING.txt
   summary: Dynamic microsimulation model
   license_family: GPL
+  license_file:
+    - COPYING.txt
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
-    - jschueller
     - conda-forge/r
+    - jschueller
