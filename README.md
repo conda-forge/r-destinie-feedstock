@@ -3,6 +3,19 @@ About r-destinie-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-destinie-feedstock/blob/main/LICENSE.txt)
 
+
+About r-destinie
+----------------
+
+Home: https://github.com/nosretraites/Destinie-2
+
+Package license: GPL-3.0-only
+
+Summary: Dynamic microsimulation model
+
+About r-destinie
+----------------
+
 Home: https://github.com/nosretraites/Destinie-2
 
 Package license: GPL-3.0-only
@@ -197,6 +210,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@conda-forge/r](https://github.com/conda-forge/r/)
+* [@conda-forge/r](https://github.com/orgs/conda-forge/teams/r/)
 * [@jschueller](https://github.com/jschueller/)
 
