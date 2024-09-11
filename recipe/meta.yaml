@@ -17,13 +17,23 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
-    - {{ compiler('cxx') }}  # [unix]
+    - {{ compiler('cxx') }}        # [not win]
+    - {{ stdlib('c') }}            # [not win]
     - {{ compiler('m2w64_cxx') }}  # [win]
-    - {{ stdlib("c") }}    # [win]
+    - {{ stdlib('m2w64_c') }}      # [win]
     - pkg-config
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}zip               # [win]
   host:
     - r-base
     - r-rcpp
@@ -49,7 +59,7 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('destinie')"  # [not win]
+    - $R -e "library('destinie')"   # [not win]
     - R -e \"library('destinie')\"  # [win]
 
 about:
@@ -59,7 +69,7 @@ about:
   license_family: GPL
   license_file:
     - COPYING.txt
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
