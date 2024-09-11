@@ -9,7 +9,7 @@ About r-destinie
 
 Home: https://github.com/nosretraites/Destinie-2
 
-Package license: GPL-3.0-only
+Package license: GPL-3.0-or-later
 
 Summary: Dynamic microsimulation model
 
@@ -18,7 +18,7 @@ About r-destinie
 
 Home: https://github.com/nosretraites/Destinie-2
 
-Package license: GPL-3.0-only
+Package license: GPL-3.0-or-later
 
 Summary: Dynamic microsimulation model
 
