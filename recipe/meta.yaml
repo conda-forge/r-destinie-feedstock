@@ -23,6 +23,8 @@ build:
     - '*/R.dll'        # [win]
     - '*/Rblas.dll'    # [win]
     - '*/Rlapack.dll'  # [win]
+  ## debug
+  skip: true # [not osx]
 
 requirements:
   build:
