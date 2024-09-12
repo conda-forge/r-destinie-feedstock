@@ -9,9 +9,11 @@ echo ${R}
 R_VERSION=$(${R} --version | grep "R version" | awk '{print $3}' | cut -d. -f1,2)
 
 if [[ "$R_VERSION" == "4.3" ]]; then
-    echo "will set dylib to .dylib"
+    echo "will not change ${SHLIB_EXT}"
 else
-    echo "will leave dylib as .so"
+    echo "[INFO] Changing ${SHLIB_EXT} to .so"
+    export SHLIB_EXT=".so"
+    export DYLIB_EXT=".so"
 fi
 ## <<< end debug
 export DISABLE_AUTOBREW=1
