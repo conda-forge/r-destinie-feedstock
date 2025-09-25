@@ -15,7 +15,7 @@ source:
     - 0001-Replace-PI-by-M_PI-as-per-STRICT_R_HEADERS.patch
 
 build:
-  number: 3
+  number: 4
   merge_build_host: true  # [win]
   rpaths:
     - lib/R/lib/
@@ -25,6 +25,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}  # [unix]
     - {{ compiler('m2w64_cxx') }}  # [win]
+    - {{ stdlib("c") }}    # [win]
     - posix  # [win]
     - pkg-config
   host:
