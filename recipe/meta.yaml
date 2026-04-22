@@ -1,7 +1,7 @@
-{% set version = "0.0" %}
-
+{% set version = "2.0" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
+{% set ghurl = 'https://github.com/nosretraites/Destinie-2' %}
+{% set commit = '588198941ced3926fcb57c360d41a82e588bef77' %}
 
 package:
   name: r-destinie
@@ -9,24 +9,37 @@ package:
 
 source:
   # no tag is available (2020-02-21)
-  url: https://github.com/nosretraites/Destinie-2/archive/588198941ced3926fcb57c360d41a82e588bef77.tar.gz
+  url: {{ ghurl }}/archive/{{ commit }}.tar.gz
   sha256: cb63b6bcb612abac904c28bd1afbb864e06642d098b7dff2811cf51066385277
   patches:
     - 0001-Replace-PI-by-M_PI-as-per-STRICT_R_HEADERS.patch
 
 build:
-  number: 3
-  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
+  ## debug
+  skip: true  # [not osx]
+  script_env:
+    - SHLIB_EXT=.so    # [osx and r_base == '4.4']
 
 requirements:
   build:
-    - {{ compiler('cxx') }}  # [unix]
+    - {{ compiler('cxx') }}        # [not win]
+    - {{ stdlib('c') }}            # [not win]
     - {{ compiler('m2w64_cxx') }}  # [win]
-    - posix  # [win]
+    - {{ stdlib('m2w64_c') }}      # [win]
     - pkg-config
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}zip               # [win]
   host:
     - r-base
     - r-rcpp
@@ -52,17 +65,19 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('destinie')"  # [not win]
+    - $R -e "library('destinie')"   # [not win]
     - R -e \"library('destinie')\"  # [win]
 
 about:
-  home: https://github.com/nosretraites/Destinie-2
-  license: GPL-3.0-only
-  license_file: COPYING.txt
+  home: {{ ghurl }}
+  license: GPL-3.0-or-later
   summary: Dynamic microsimulation model
   license_family: GPL
+  license_file:
+    - COPYING.txt
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
-    - jschueller
     - conda-forge/r
+    - jschueller
